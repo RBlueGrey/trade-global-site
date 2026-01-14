@@ -1,18 +1,31 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import type { RouteRecordRaw } from 'vue-router'
-// 临时定义一个 Home 组件，稍后我们去 views 里写真正的
-const routes: Array<RouteRecordRaw> = [
-  {
-    path: '/',
-    name: 'Home',
-    // 路由懒加载：访问时才加载文件，优化首屏速度
-    component: () => import('@/views/home/index.vue')
-  }
-]
+import MainLayout from '@/layouts/MainLayout.vue'
 
 const router = createRouter({
-  history: createWebHistory(), // 使用 HTML5 History 模式 (无 # 号)
-  routes
+  history: createWebHistory(),
+  routes: [
+    {
+      path: '/',
+      component: MainLayout, // 这一层提供导航和脚部
+      children: [
+        {
+          path: '', // 默认显示首页
+          name: 'Home',
+          component: () => import('@/views/home/homeView.vue')
+        },
+        {
+          path: 'products',
+          name: 'Products',
+          component: () => import('@/views/products/ProductList.vue')
+        },
+        {
+          path: 'products/:id', 
+          name: 'ProductDetail',
+          component: () => import('@/views/products/ProductDetail.vue')
+        }
+      ]
+    }
+  ]
 })
 
 export default router

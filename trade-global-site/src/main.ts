@@ -5,6 +5,7 @@ import App from './App.vue'
 import '@/styles/main.scss'
 // 引入 Element Plus 样式
 import 'element-plus/dist/index.css'
+import 'element-plus/theme-chalk/display.css' 
 
 // 2. 引入插件
 import ElementPlus from 'element-plus'
