@@ -1,5 +1,24 @@
-body {
+/* 全局重置 */
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* 全局字体 */
+body {
+  font-family: 'Microsoft Yahei', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #fff;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* Element Plus 全局样式覆盖 */
+:root {
+  --el-color-primary: #409eff;
+  --el-color-primary-light-9: #ecf5ff;
+}
+
+.el-container {
+  width: 100%;
 }
